@@ -1,0 +1,56 @@
+
+<div class="layout">
+
+  <aside class="sidebar">
+
+    <h2>EMS</h2>
+    <p>Employee Management System</p>
+
+    <nav>
+
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Dashboard
+      </a>
+
+      <a
+        routerLink="/admin"
+        routerLinkActive="active">
+        Admin
+      </a>
+
+      <a
+        routerLink="/employees"
+        routerLinkActive="active">
+        Employees
+      </a>
+
+      <a
+        routerLink="/students"
+        routerLinkActive="active">
+        Students
+      </a>
+
+      <a
+        routerLink="/departments"
+        routerLinkActive="active">
+        Departments
+      </a>
+
+      <button type="button" (click)="logout()">
+        Logout
+      </button>
+
+    </nav>
+
+  </aside>
+
+  <main class="main-content">
+
+    <router-outlet></router-outlet>
+
+  </main>
+
+</div>

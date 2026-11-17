@@ -1,0 +1,75 @@
+
+.dashboard-header h1 {
+  color: #172554;
+  font-size: 28px;
+}
+
+.summary-card {
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 25px;
+}
+
+.employees-icon {
+  background: #dbeafe;
+}
+
+.departments-icon {
+  background: #dcfce7;
+}
+
+.salary-icon {
+  background: #fef3c7;
+  font-size: 28px;
+}
+
+.average-icon {
+  background: #f3e8ff;
+}
+
+.summary-card h2 {
+  color: #172554;
+  font-size: 21px;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  color: #334155;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.table td {
+  color: #475569;
+}
+
+@media (max-width: 600px) {
+  .dashboard-header {
+    align-items: flex-start !important;
+  }
+
+  .summary-card h2 {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,152 @@
+
+<div class="container-fluid p-0">
+
+  <!-- Dashboard Header -->
+  <div class="dashboard-header d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+    <div>
+      <h1 class="fw-bold mb-1">Dashboard</h1>
+      <p class="text-secondary mb-0">
+        Welcome to Employee Management System.
+      </p>
+    </div>
+
+    <button class="btn btn-primary" (click)="loadDashboard()">
+      Refresh Data
+    </button>
+  </div>
+
+  <!-- Error Message -->
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="row g-4 mb-4">
+
+    <div class="col-xl-3 col-md-6">
+      <div class="card summary-card h-100 shadow-sm border-0">
+        <div class="card-body d-flex align-items-center gap-3">
+          <div class="card-icon employees-icon">👥</div>
+          <div>
+            <p class="text-secondary mb-1">Total Employees</p>
+            <h2 class="fw-bold mb-0">{{ totalEmployees }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+      <div class="card summary-card h-100 shadow-sm border-0">
+        <div class="card-body d-flex align-items-center gap-3">
+          <div class="card-icon departments-icon">🏢</div>
+          <div>
+            <p class="text-secondary mb-1">Total Departments</p>
+            <h2 class="fw-bold mb-0">{{ totalDepartments }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+      <div class="card summary-card h-100 shadow-sm border-0">
+        <div class="card-body d-flex align-items-center gap-3">
+          <div class="card-icon salary-icon">₹</div>
+          <div>
+            <p class="text-secondary mb-1">Total Monthly Salary</p>
+            <h2 class="fw-bold mb-0">
+              {{ totalSalary | currency:'INR':'symbol':'1.0-2' }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+      <div class="card summary-card h-100 shadow-sm border-0">
+        <div class="card-body d-flex align-items-center gap-3">
+          <div class="card-icon average-icon">📊</div>
+          <div>
+            <p class="text-secondary mb-1">Average Salary</p>
+            <h2 class="fw-bold mb-0">
+              {{ averageSalary | currency:'INR':'symbol':'1.0-2' }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Employee List -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+      <h4 class="fw-bold mb-3">Employee List</h4>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Department</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let emp of employees">
+            <td>{{ emp.id }}</td>
+            <td class="fw-semibold">{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.salary | currency:'INR':'symbol':'1.0-2' }}</td>
+            <td>
+                <span class="badge bg-primary">
+                  {{ emp.departmentName }}
+                </span>
+            </td>
+          </tr>
+
+          <tr *ngIf="employees.length === 0">
+            <td colspan="5" class="text-center text-secondary py-4">
+              No employees found.
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department List -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+      <h4 class="fw-bold mb-3">Department List</h4>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>Department Name</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let dept of departments">
+            <td>{{ dept.id }}</td>
+            <td class="fw-semibold">{{ dept.departmentName }}</td>
+          </tr>
+
+          <tr *ngIf="departments.length === 0">
+            <td colspan="2" class="text-center text-secondary py-4">
+              No departments found.
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
